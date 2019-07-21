@@ -196,6 +196,22 @@
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>exec-maven-plugin</artifactId>
 					<version>${exec-maven-plugin.version}</version>
+					<executions>
+						<execution>
+							<id>Post-processing</id>
+							<phase>prepare-package</phase>
+							<goals>
+								<goal>exec</goal>
+							</goals>
+							<configuration>
+								<executable>java</executable>
+								<workingDirectory>${root.directory}</workingDirectory>
+								<arguments>
+									<argument>-version</argument>
+								</arguments>
+							</configuration>
+						</execution>
+					</executions>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -206,13 +222,18 @@
 						<attach>false</attach>
 						<appendAssemblyId>false</appendAssemblyId>
 						<archive>
-							<manifest>
-								<mainClass>${main.class}</mainClass>
-							</manifest>
+							<manifestEntries>
+								<Manifest-Version>1.0</Manifest-Version>
+								<Build-Jdk>${java.version}</Build-Jdk>
+								<Built-By>Agustín Golmar</Built-By>
+								<Created-By>Agustín Golmar</Created-By>
+								<Main-Class>${main.class}</Main-Class>
+								<Multi-Release>false</Multi-Release>
+							</manifestEntries>
 						</archive>
-						<descriptorRefs>
-							<descriptorRef>jar-with-dependencies</descriptorRef>
-						</descriptorRefs>
+						<descriptors>
+							<descriptor>src/assembly/descriptor.xml</descriptor>
+						</descriptors>
 						<finalName>${final.name}</finalName>
 						<outputDirectory>${root.directory}</outputDirectory>
 					</configuration>
