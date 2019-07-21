@@ -1,0 +1,284 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<project
+	xmlns = "http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi = "https://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<!-- Artifact Specification -->
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ar.nadezhda.multitier</groupId>
+	<artifactId>multitier</artifactId>
+	<version>0.0.0</version>
+	<packaging>pom</packaging>
+	<name>Multitier</name>
+	<url>https://github.com/agustin-golmar/Multitier</url>
+
+	<developers>
+		<developer>
+			<id>agustin-golmar</id>
+			<name>Agustín Golmar</name>
+			<email>agustin.golmar@gmail.com</email>
+			<url>https://agustin-golmar.github.io/</url>
+			<roles>
+				<role>Author</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<description>
+		A template for multitiered applications.
+	</description>
+
+	<!-- Modules -->
+	<modules>
+		<module>concept</module>
+		<module>backend</module>
+		<module>api</module>
+		<module>frontend</module>
+	</modules>
+
+	<!-- Properties -->
+	<properties>
+		<!-- Platform -->
+		<java.version>12</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<main.class>${project.groupId}.frontend.Main</main.class>
+		<final.name>${project.artifactId}</final.name>
+		<root.directory>${project.basedir}</root.directory>
+
+		<!-- Global -->
+		<org.springframework.version>5.1.8.RELEASE</org.springframework.version>
+
+		<!-- DI -->
+		<javax.inject.version>1</javax.inject.version>
+		<spring-context.version>${org.springframework.version}</spring-context.version>
+
+		<!-- Logging -->
+		<ch.qos.logback.version>1.2.3</ch.qos.logback.version>
+		<org.slf4j.version>1.7.26</org.slf4j.version>
+		<jcl-over-slf4j.version>${org.slf4j.version}</jcl-over-slf4j.version>
+		<logback-classic.version>${ch.qos.logback.version}</logback-classic.version>
+		<logback-core.version>${ch.qos.logback.version}</logback-core.version>
+		<slf4j-api.version>${org.slf4j.version}</slf4j-api.version>
+
+		<!-- Testing -->
+		<junit-jupiter-engine.version>5.5.0</junit-jupiter-engine.version>
+		<junit-platform-launcher.version>1.5.0</junit-platform-launcher.version>
+		<spring-test.version>${org.springframework.version}</spring-test.version>
+
+		<!-- Plugins -->
+		<exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
+		<maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
+		<maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
+		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+		<maven-eclipse-plugin.version>2.10</maven-eclipse-plugin.version>
+		<maven-jar-plugin.version>3.1.2</maven-jar-plugin.version>
+		<maven-surefire-plugin.version>3.0.0-M3</maven-surefire-plugin.version>
+	</properties>
+
+	<!-- Global Dependencies -->
+	<dependencyManagement>
+		<dependencies>
+			<!-- Modules -->
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>concept</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>ar.nadezhda.multitier</groupId>
+				<artifactId>api</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>ar.nadezhda.multitier</groupId>
+				<artifactId>backend</artifactId>
+				<version>${project.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+			<dependency>
+				<groupId>ar.nadezhda.multitier</groupId>
+				<artifactId>frontend</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<!-- DI -->
+			<dependency>
+				<groupId>javax.inject</groupId>
+				<artifactId>javax.inject</artifactId>
+				<version>${javax.inject.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring-context.version}</version>
+			</dependency>
+			<!-- Logging -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jcl-over-slf4j</artifactId>
+				<version>${jcl-over-slf4j.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+				<version>${logback-classic.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-core</artifactId>
+				<version>${logback-core.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j-api.version}</version>
+			</dependency>
+			<!-- Testing -->
+			<dependency>
+				<groupId>org.junit.jupiter</groupId>
+				<artifactId>junit-jupiter-engine</artifactId>
+				<version>${junit-jupiter-engine.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.junit.platform</groupId>
+				<artifactId>junit-platform-launcher</artifactId>
+				<version>${junit-platform-launcher.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${spring-test.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- Testing Modules -->
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>concept</artifactId>
+				<version>${project.version}</version>
+				<type>test-jar</type>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>api</artifactId>
+				<version>${project.version}</version>
+				<type>test-jar</type>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>backend</artifactId>
+				<version>${project.version}</version>
+				<type>test-jar</type>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>frontend</artifactId>
+				<version>${project.version}</version>
+				<type>test-jar</type>
+				<scope>test</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<!-- Build -->
+	<build>
+		<!-- Global Plugins -->
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>exec-maven-plugin</artifactId>
+					<version>${exec-maven-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>${maven-assembly-plugin.version}</version>
+					<configuration>
+						<id>executable</id>
+						<attach>false</attach>
+						<appendAssemblyId>false</appendAssemblyId>
+						<archive>
+							<manifest>
+								<mainClass>${main.class}</mainClass>
+							</manifest>
+						</archive>
+						<descriptorRefs>
+							<descriptorRef>jar-with-dependencies</descriptorRef>
+						</descriptorRefs>
+						<finalName>${final.name}</finalName>
+						<outputDirectory>${root.directory}</outputDirectory>
+					</configuration>
+					<executions>
+						<execution>
+							<id>executable</id>
+							<phase>package</phase>
+							<goals>
+								<goal>single</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>${maven-clean-plugin.version}</version>
+					<configuration>
+						<filesets>
+							<fileset>
+								<directory>${root.directory}</directory>
+								<includes>
+									<include>${final.name}.jar</include>
+								</includes>
+							</fileset>
+						</filesets>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven-compiler-plugin.version}</version>
+					<configuration>
+						<compilerVersion>${java.version}</compilerVersion>
+						<release>${java.version}</release>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-eclipse-plugin</artifactId>
+					<version>${maven-eclipse-plugin.version}</version>
+					<configuration>
+						<downloadJavadocs>true</downloadJavadocs>
+						<downloadSources>true</downloadSources>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>${maven-jar-plugin.version}</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>test-jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${maven-surefire-plugin.version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>

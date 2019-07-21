@@ -1,0 +1,36 @@
+# --------------------------------------------------------------------------- #
+# Folders:
+#
+
+.idea/
+.settings/
+.vs/
+.vscode/
+bin/
+bower_components/
+log/
+logs/
+node_modules/
+target/
+
+# --------------------------------------------------------------------------- #
+# Files:
+#
+
+*.csproj
+*.iml
+*.iws
+*.jar
+*.log
+*.sln
+*.war
+*_IS_UNDEFINED
+*~
+.DS_Store
+.classpath
+.factorypath
+.project
+
+# --------------------------------------------------------------------------- #
+# Project Specific:
+#

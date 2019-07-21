@@ -1,0 +1,70 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<project
+	xmlns = "http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi = "https://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<!-- Artifact Specification -->
+	<parent>
+		<groupId>ar.nadezhda.multitier</groupId>
+		<artifactId>multitier</artifactId>
+		<version>0.0.0</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>api</artifactId>
+	<packaging>jar</packaging>
+	<name>API</name>
+
+	<!-- Properties -->
+	<properties></properties>
+
+	<!-- Dependencies -->
+	<dependencies>
+		<!-- Modules -->
+		<dependency>
+			<groupId>${project.parent.groupId}</groupId>
+			<artifactId>concept</artifactId>
+		</dependency>
+		<!-- DI -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<!-- Testing -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-launcher</artifactId>
+		</dependency>
+		<!-- Testing Modules -->
+		<dependency>
+			<groupId>${project.parent.groupId}</groupId>
+			<artifactId>concept</artifactId>
+			<type>test-jar</type>
+		</dependency>
+	</dependencies>
+
+	<!-- Build -->
+	<build></build>
+</project>
