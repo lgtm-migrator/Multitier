@@ -1,8 +1,8 @@
 <assembly
-	xmlns = "https://maven.apache.org/ASSEMBLY/2.0.0"
+	xmlns = "https://maven.apache.org/assembly/2.0.0"
 	xmlns:xsi = "https://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation = "https://maven.apache.org/ASSEMBLY/2.0.0 https://maven.apache.org/xsd/assembly-2.0.0.xsd">
-	<id>multitier-assembly</id>
+	xsi:schemaLocation = "https://maven.apache.org/assembly/2.0.0 https://maven.apache.org/xsd/assembly-2.0.0.xsd">
+	<id>frontend-assembly</id>
 	<formats>
 		<format>jar</format>
 	</formats>

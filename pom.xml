@@ -1,8 +1,8 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <project
-	xmlns = "http://maven.apache.org/POM/4.0.0"
+	xmlns = "https://maven.apache.org/pom/4.0.0"
 	xmlns:xsi = "https://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	xsi:schemaLocation = "https://maven.apache.org/pom/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<!-- Artifact Specification -->
 	<modelVersion>4.0.0</modelVersion>
@@ -42,6 +42,7 @@
 		<!-- Platform -->
 		<java.version>12</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<main.class>${project.groupId}.frontend.Main</main.class>
 		<final.name>${project.artifactId}</final.name>
 		<root.directory>${project.basedir}</root.directory>
@@ -67,12 +68,17 @@
 		<spring-test.version>${org.springframework.version}</spring-test.version>
 
 		<!-- Plugins -->
+		<lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
 		<exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
 		<maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
+		<maven-checkstyle-plugin.version>3.1.0</maven-checkstyle-plugin.version>
 		<maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
 		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
 		<maven-eclipse-plugin.version>2.10</maven-eclipse-plugin.version>
 		<maven-jar-plugin.version>3.1.2</maven-jar-plugin.version>
+		<maven-project-info-reports-plugin.version>3.0.0</maven-project-info-reports-plugin.version>
+		<maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
+		<maven-site-plugin.version>3.7.1</maven-site-plugin.version>
 		<maven-surefire-plugin.version>3.0.0-M3</maven-surefire-plugin.version>
 	</properties>
 
@@ -225,14 +231,14 @@
 							<manifestEntries>
 								<Manifest-Version>1.0</Manifest-Version>
 								<Build-Jdk>${java.version}</Build-Jdk>
-								<Built-By>Agustín Golmar</Built-By>
-								<Created-By>Agustín Golmar</Created-By>
+								<Built-By>${project.developers.developer[0].name}</Built-By>
+								<Created-By>${project.developers.developer[0].name}</Created-By>
 								<Main-Class>${main.class}</Main-Class>
 								<Multi-Release>false</Multi-Release>
 							</manifestEntries>
 						</archive>
 						<descriptors>
-							<descriptor>src/assembly/descriptor.xml</descriptor>
+							<descriptor>${root.directory}/.resource/plugin/frontend-assembly.xml</descriptor>
 						</descriptors>
 						<finalName>${final.name}</finalName>
 						<outputDirectory>${root.directory}</outputDirectory>
@@ -243,6 +249,24 @@
 							<phase>package</phase>
 							<goals>
 								<goal>single</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-checkstyle-plugin</artifactId>
+					<version>${maven-checkstyle-plugin.version}</version>
+					<configuration>
+						<configLocation>${root.directory}/.resource/plugin/checkstyle.xml</configLocation>
+						<consoleOutput>true</consoleOutput>
+					</configuration>
+					<executions>
+						<execution>
+							<id>checkstyle-validation</id>
+							<phase>validate</phase>
+							<goals>
+								<goal>check</goal>
 							</goals>
 						</execution>
 					</executions>
@@ -296,10 +320,99 @@
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-project-info-reports-plugin</artifactId>
+					<version>${maven-project-info-reports-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>${maven-resources-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>${maven-site-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>${maven-surefire-plugin.version}</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
+		<!-- Plugins Applied -->
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+			</plugin>
+		</plugins>
 	</build>
+
+	<!-- Profiles -->
+	<profiles>
+		<profile>
+			<id>only-eclipse</id>
+			<activation>
+				<property>
+					<name>m2e.version</name>
+				</property>
+			</activation>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>org.eclipse.m2e</groupId>
+							<artifactId>lifecycle-mapping</artifactId>
+							<version>${lifecycle-mapping.version}</version>
+							<configuration>
+								<lifecycleMappingMetadata>
+									<pluginExecutions>
+										<pluginExecution>
+											<pluginExecutionFilter>
+												<groupId>org.apache.maven.plugins</groupId>
+												<artifactId>maven-checkstyle-plugin</artifactId>
+												<versionRange>${maven-checkstyle-plugin.version}</versionRange>
+												<goals>
+													<goal>check</goal>
+												</goals>
+											</pluginExecutionFilter>
+											<action>
+												<ignore></ignore>
+											</action>
+										</pluginExecution>
+									</pluginExecutions>
+								</lifecycleMappingMetadata>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+		</profile>
+	</profiles>
+
+	<!-- Reports -->
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>checkstyle</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+		</plugins>
+	</reporting>
+
+	<!-- Distributions -->
+	<distributionManagement>
+		<site>
+			<id>${project.artifactId}-site</id>
+			<url>${project.baseUri}</url>
+		</site>
+	</distributionManagement>
 </project>
