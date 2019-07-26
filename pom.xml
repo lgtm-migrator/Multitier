@@ -68,18 +68,23 @@
 		<spring-test.version>${org.springframework.version}</spring-test.version>
 
 		<!-- Plugins -->
-		<lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
+		<checkstyle.version>8.22</checkstyle.version>
 		<exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
+		<lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
 		<maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
 		<maven-checkstyle-plugin.version>3.1.0</maven-checkstyle-plugin.version>
 		<maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
 		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
 		<maven-eclipse-plugin.version>2.10</maven-eclipse-plugin.version>
 		<maven-jar-plugin.version>3.1.2</maven-jar-plugin.version>
+		<maven-pmd-plugin.version>3.12.0</maven-pmd-plugin.version>
 		<maven-project-info-reports-plugin.version>3.0.0</maven-project-info-reports-plugin.version>
 		<maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
 		<maven-site-plugin.version>3.7.1</maven-site-plugin.version>
 		<maven-surefire-plugin.version>3.0.0-M3</maven-surefire-plugin.version>
+		<nohttp-checkstyle.version>0.0.3.RELEASE</nohttp-checkstyle.version>
+		<pitest-junit5-plugin.version>0.9</pitest-junit5-plugin.version>
+		<pitest-maven.version>1.4.9</pitest-maven.version>
 	</properties>
 
 	<!-- Global Dependencies -->
@@ -257,9 +262,24 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-checkstyle-plugin</artifactId>
 					<version>${maven-checkstyle-plugin.version}</version>
+					<dependencies>
+						<dependency>
+							<groupId>com.puppycrawl.tools</groupId>
+							<artifactId>checkstyle</artifactId>
+							<version>${checkstyle.version}</version>
+						</dependency>
+						<dependency>
+							<groupId>io.spring.nohttp</groupId>
+							<artifactId>nohttp-checkstyle</artifactId>
+							<version>${nohttp-checkstyle.version}</version>
+						</dependency>
+					</dependencies>
 					<configuration>
 						<configLocation>${root.directory}/.resource/plugin/checkstyle.xml</configLocation>
-						<consoleOutput>true</consoleOutput>
+						<sourceDirectories>./</sourceDirectories>
+						<consoleOutput>false</consoleOutput>
+						<includes>**/*</includes>
+						<excludes>**/target/**</excludes>
 					</configuration>
 					<executions>
 						<execution>
@@ -320,6 +340,31 @@
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-pmd-plugin</artifactId>
+					<version>${maven-pmd-plugin.version}</version>
+					<configuration>
+						<analysisCache>true</analysisCache>
+						<failOnViolation>true</failOnViolation>
+						<linkXRef>false</linkXRef>
+						<printFailingErrors>true</printFailingErrors>
+						<sourceEncoding>UTF-8</sourceEncoding>
+						<rulesets>
+							<ruleset>${root.directory}/.resource/plugin/pmd.xml</ruleset>
+						</rulesets>
+					</configuration>
+					<executions>
+						<execution>
+							<id>pmd/cpd-verification</id>
+							<phase>verify</phase>
+							<goals>
+								<goal>check</goal>
+								<goal>cpd-check</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-project-info-reports-plugin</artifactId>
 					<version>${maven-project-info-reports-plugin.version}</version>
 				</plugin>
@@ -338,6 +383,35 @@
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>${maven-surefire-plugin.version}</version>
 				</plugin>
+				<plugin>
+					<groupId>org.pitest</groupId>
+					<artifactId>pitest-maven</artifactId>
+					<version>${pitest-maven.version}</version>
+					<dependencies>
+						<dependency>
+							<groupId>org.pitest</groupId>
+							<artifactId>pitest-junit5-plugin</artifactId>
+							<version>${pitest-junit5-plugin.version}</version>
+						</dependency>
+					</dependencies>
+					<configuration>
+						<verbose>true</verbose>
+						<targetClasses>
+							<param>${project.groupId}.*</param>
+						</targetClasses>
+						<targetTests>
+							<param>${project.groupId}.*</param>
+						</targetTests>
+					</configuration>
+					<executions>
+						<execution>
+							<id>mutation-testing</id>
+							<goals>
+								<goal>mutationCoverage</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 		<!-- Plugins Applied -->
@@ -345,6 +419,14 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.pitest</groupId>
+				<artifactId>pitest-maven</artifactId>
 			</plugin>
 		</plugins>
 	</build>
@@ -404,6 +486,10 @@
 						</reports>
 					</reportSet>
 				</reportSets>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</reporting>

@@ -1,0 +1,21 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<ruleset
+	name = "PMD/CPD Ruleset"
+	xmlns = "https://pmd.sourceforge.net/ruleset/2.0.0"
+	xmlns:xsi = "https://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation = "http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
+
+	<description>PMD/CPD Ruleset</description>
+
+	<!-- Best Practices Rules -->
+	<!-- Code Style Rules -->
+	<!-- Design Rules -->
+	<!-- Documentation Rules -->
+	<!-- Error Prone Rules -->
+	<!-- Multithreading Rules -->
+	<!-- Performance Rules -->
+
+	<!-- Security Rules -->
+	<rule ref = "category/java/security.xml/HardCodedCryptoKey"/>
+	<rule ref = "category/java/security.xml/InsecureCryptoIv"/>
+</ruleset>
