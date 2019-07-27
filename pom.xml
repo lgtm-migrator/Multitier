@@ -17,7 +17,7 @@
 		<developer>
 			<id>agustin-golmar</id>
 			<name>Agustín Golmar</name>
-			<email>agustin.golmar@gmail.com</email>
+			<email>agustin.golmar@nadezhda.ar</email>
 			<url>https://agustin-golmar.github.io/</url>
 			<roles>
 				<role>Author</role>
@@ -48,6 +48,7 @@
 		<root.directory>${project.basedir}</root.directory>
 
 		<!-- Global -->
+		<org.mockito.version>3.0.0</org.mockito.version>
 		<org.springframework.version>5.1.8.RELEASE</org.springframework.version>
 
 		<!-- DI -->
@@ -63,8 +64,11 @@
 		<slf4j-api.version>${org.slf4j.version}</slf4j-api.version>
 
 		<!-- Testing -->
+		<hamcrest.version>2.1</hamcrest.version>
 		<junit-jupiter-engine.version>5.5.0</junit-jupiter-engine.version>
 		<junit-platform-launcher.version>1.5.0</junit-platform-launcher.version>
+		<mockito-core.version>${org.mockito.version}</mockito-core.version>
+		<mockito-junit-jupiter.version>${org.mockito.version}</mockito-junit-jupiter.version>
 		<spring-test.version>${org.springframework.version}</spring-test.version>
 
 		<!-- Plugins -->
@@ -150,6 +154,12 @@
 			</dependency>
 			<!-- Testing -->
 			<dependency>
+				<groupId>org.hamcrest</groupId>
+				<artifactId>hamcrest</artifactId>
+				<version>${hamcrest.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
 				<groupId>org.junit.jupiter</groupId>
 				<artifactId>junit-jupiter-engine</artifactId>
 				<version>${junit-jupiter-engine.version}</version>
@@ -159,6 +169,18 @@
 				<groupId>org.junit.platform</groupId>
 				<artifactId>junit-platform-launcher</artifactId>
 				<version>${junit-platform-launcher.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-core</artifactId>
+				<version>${mockito-core.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-junit-jupiter</artifactId>
+				<version>${mockito-junit-jupiter.version}</version>
 				<scope>test</scope>
 			</dependency>
 			<dependency>
@@ -210,7 +232,7 @@
 					<version>${exec-maven-plugin.version}</version>
 					<executions>
 						<execution>
-							<id>Post-processing</id>
+							<id>post-processing</id>
 							<phase>prepare-package</phase>
 							<goals>
 								<goal>exec</goal>
@@ -271,16 +293,11 @@
 					<configuration>
 						<id>executable</id>
 						<attach>false</attach>
+						<encoding>UTF-8</encoding>
 						<appendAssemblyId>false</appendAssemblyId>
 						<archive>
-							<manifestEntries>
-								<Manifest-Version>1.0</Manifest-Version>
-								<Build-Jdk>${java.version}</Build-Jdk>
-								<Built-By>${project.developers.developer[0].name}</Built-By>
-								<Created-By>${project.developers.developer[0].name}</Created-By>
-								<Main-Class>${main.class}</Main-Class>
-								<Multi-Release>false</Multi-Release>
-							</manifestEntries>
+							<addMavenDescriptor>false</addMavenDescriptor>
+							<manifestFile>${root.directory}/.resource/manifest/frontend-manifest.mf</manifestFile>
 						</archive>
 						<descriptors>
 							<descriptor>${root.directory}/.resource/plugin/frontend-assembly.xml</descriptor>
@@ -370,6 +387,11 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-jar-plugin</artifactId>
 					<version>${maven-jar-plugin.version}</version>
+					<configuration>
+						<archive>
+							<addMavenDescriptor>false</addMavenDescriptor>
+						</archive>
+					</configuration>
 					<executions>
 						<execution>
 							<goals>

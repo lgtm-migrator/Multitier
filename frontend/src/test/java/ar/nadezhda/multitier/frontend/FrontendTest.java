@@ -14,6 +14,7 @@ public final class FrontendTest {
 
 	@Test
 	public void aTest() {
+		Main.main();
 		assertTrue(true);
 	}
 }

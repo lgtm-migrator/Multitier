@@ -7,6 +7,7 @@ public final class ConceptTest {
 
 	@Test
 	public void aTest() {
+		new Concept();
 		assertTrue(true);
 	}
 }

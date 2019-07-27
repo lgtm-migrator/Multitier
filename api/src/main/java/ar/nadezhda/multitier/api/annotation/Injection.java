@@ -12,5 +12,5 @@ import org.springframework.context.annotation.Bean;
 @Documented
 @Retention(RUNTIME)
 @Target({ANNOTATION_TYPE, METHOD})
-public @interface Injectable {
+public @interface Injection {
 }
