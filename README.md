@@ -6,6 +6,8 @@
 [![...](https://snyk.io/test/github/agustin-golmar/Multitier/badge.svg?targetFile=pom.xml)](https://snyk.io/test/github/agustin-golmar/Multitier?targetFile=pom.xml)
 [![...](https://codecov.io/gh/agustin-golmar/Multitier/branch/master/graph/badge.svg)](https://codecov.io/gh/agustin-golmar/Multitier)
 
+[![...](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fagustin-golmar%2FMultitier.svg?type=small)](https://app.fossa.com/projects/git%2Bgithub.com%2Fagustin-golmar%2FMultitier?ref=badge_small)
+
 # Multitier Application
 
 A template for multitiered applications.
