@@ -5,6 +5,7 @@
 [![...](https://www.travis-ci.com/agustin-golmar/Multitier.svg?branch=master)](https://www.travis-ci.com/agustin-golmar/Multitier)
 [![...](https://snyk.io/test/github/agustin-golmar/Multitier/badge.svg?targetFile=pom.xml)](https://snyk.io/test/github/agustin-golmar/Multitier?targetFile=pom.xml)
 [![...](https://codecov.io/gh/agustin-golmar/Multitier/branch/master/graph/badge.svg)](https://codecov.io/gh/agustin-golmar/Multitier)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fagustin-golmar%2FMultitier.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fagustin-golmar%2FMultitier?ref=badge_shield)
 
 # Multitier Application
 
@@ -42,3 +43,7 @@ This project has been built, designed and maintained by:
 __"Title"__. Author. _Metadata. Date_.
 
 __"Title"__. Author. _Access Date. [[https://github.com/agustin-golmar/Multitier]](https://github.com/agustin-golmar/Multitier)_
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fagustin-golmar%2FMultitier.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fagustin-golmar%2FMultitier?ref=badge_large)
