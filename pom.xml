@@ -46,6 +46,7 @@
 		<main.class>${project.groupId}.frontend.Main</main.class>
 		<final.name>${project.artifactId}</final.name>
 		<root.directory>${project.basedir}</root.directory>
+		<test.coverage>0.0</test.coverage>
 
 		<!-- Global -->
 		<org.mockito.version>3.0.0</org.mockito.version>
@@ -102,18 +103,18 @@
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>ar.nadezhda.multitier</groupId>
+				<groupId>${project.groupId}</groupId>
 				<artifactId>api</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>ar.nadezhda.multitier</groupId>
+				<groupId>${project.groupId}</groupId>
 				<artifactId>backend</artifactId>
 				<version>${project.version}</version>
 				<scope>runtime</scope>
 			</dependency>
 			<dependency>
-				<groupId>ar.nadezhda.multitier</groupId>
+				<groupId>${project.groupId}</groupId>
 				<artifactId>frontend</artifactId>
 				<version>${project.version}</version>
 			</dependency>
@@ -277,7 +278,7 @@
 											<limit>
 												<counter>LINE</counter>
 												<value>COVEREDRATIO</value>
-												<minimum>0.0</minimum>
+												<minimum>${test.coverage}</minimum>
 											</limit>
 										</limits>
 									</rule>

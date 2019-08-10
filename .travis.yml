@@ -1,7 +1,12 @@
+# Container:
 env:
   - CODECOV_TOKEN="4ab0dfbd-66bb-45a7-9ada-051fa9f0feb0"
-jdk: openjdk12
-language: java
+language:
+  - java
+jdk:
+  - openjdk12
+
+# Run:
 script:
   - mvn clean package
 after_success:

@@ -1,4 +1,5 @@
 Manifest-Version: 1.0
 Build-Jdk: 12
+Created-By: agustin-golmar
 Main-Class: ar.nadezhda.multitier.frontend.Main
 Multi-Release: false
