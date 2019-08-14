@@ -17,13 +17,7 @@ public final class Main {
 
 	public static void main(final String ... arguments) {
 		try {
-			try (final var context = new AnnotationConfigApplicationContext(packages)) {
-				log.info("Context loaded.");
-			}
-			catch (final BeanCreationException exception) {
-				log.error("Rethrowing exception of type: '{}'.", exception.getClass());
-				throw exception.getRootCause();
-			}
+			deploy(arguments);
 		}
 		catch (final NoSuchBeanDefinitionException exception) {
 			log.error("Unavailable injection of type: '{}'.", exception.getBeanType());
@@ -31,12 +25,25 @@ public final class Main {
 			log.error("The context contains {} injections that match the request.", exception.getNumberOfBeansFound());
 			log.error("The error message is: '{}'.", exception.getMessage());
 		}
-		catch (final Throwable exception) {
+		catch (final Exception exception) {
 			log.error("Unknown exception of type: '{}'.", exception.getClass().getName());
 			log.error("The error message is: '{}'.", exception.getMessage());
-			log.error("The stacktrace is:");
-			exception.printStackTrace();
+			log.error("The stacktrace is:", exception);
 			log.error("End of stacktrace.");
+		}
+	}
+
+	private static void deploy(final String ... arguments)
+			throws Exception {
+		try (final var context = new AnnotationConfigApplicationContext(packages)) {
+			log.info("Context loaded.");
+		}
+		catch (final BeanCreationException exception) {
+			final Throwable rootCause = exception.getRootCause();
+			if (rootCause instanceof Exception) {
+				log.error("Rethrowing exception...");
+				throw (Exception) rootCause;
+			}
 		}
 	}
 }

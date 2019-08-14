@@ -3,6 +3,7 @@ package ar.nadezhda.multitier.frontend;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import ar.nadezhda.multitier.backend.config.BackendTestConfig;
 import ar.nadezhda.multitier.frontend.config.FrontendTestConfig;
 import ar.nadezhda.multitier.frontend.support.BreakableComponent;
@@ -29,22 +30,26 @@ public final class MainTest {
 
 	@Test
 	public void canDeployApplicationContext() {
-		Main.main();
+		assertDoesNotThrow(() -> Main.main());
 	}
 
 	@Test
 	public void canCatchUnavailableInjections() {
-		BreakableComponent.lockedRun(() -> {
-			BreakableComponent.requestUnavailableInjection = true;
-			Main.main();
+		assertDoesNotThrow(() -> {
+			BreakableComponent.lockedRun(() -> {
+				BreakableComponent.requestUnavailableInjection = true;
+				Main.main();
+			});
 		});
 	}
 
 	@Test
 	public void canCatchUnknownErrors() {
-		BreakableComponent.lockedRun(() -> {
-			BreakableComponent.raiseUnknownError = true;
-			Main.main();
+		assertDoesNotThrow(() -> {
+			BreakableComponent.lockedRun(() -> {
+				BreakableComponent.raiseUnknownError = true;
+				Main.main();
+			});
 		});
 	}
 }
