@@ -1,0 +1,8 @@
+extraction:
+  java:
+    index:
+      java_version: 12
+      maven:
+        version: 3.6.1
+      build_command:
+        - mvn clean package
