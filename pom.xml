@@ -54,7 +54,7 @@
 
 		<!-- DI -->
 		<javax.inject.version>1</javax.inject.version>
-		<spring-context.version>${org.springframework.version}</spring-context.version>
+		<spring-context.version>5.1.9.RELEASE</spring-context.version>
 
 		<!-- Logging -->
 		<ch.qos.logback.version>1.2.3</ch.qos.logback.version>
