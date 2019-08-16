@@ -59,7 +59,7 @@
 		<!-- Logging -->
 		<ch.qos.logback.version>1.2.3</ch.qos.logback.version>
 		<org.slf4j.version>1.7.26</org.slf4j.version>
-		<jcl-over-slf4j.version>${org.slf4j.version}</jcl-over-slf4j.version>
+		<jcl-over-slf4j.version>1.7.28</jcl-over-slf4j.version>
 		<logback-classic.version>${ch.qos.logback.version}</logback-classic.version>
 		<logback-core.version>${ch.qos.logback.version}</logback-core.version>
 		<slf4j-api.version>${org.slf4j.version}</slf4j-api.version>
