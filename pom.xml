@@ -70,7 +70,7 @@
 		<junit-platform-launcher.version>1.5.0</junit-platform-launcher.version>
 		<mockito-core.version>${org.mockito.version}</mockito-core.version>
 		<mockito-junit-jupiter.version>${org.mockito.version}</mockito-junit-jupiter.version>
-		<spring-test.version>${org.springframework.version}</spring-test.version>
+		<spring-test.version>5.1.9.RELEASE</spring-test.version>
 
 		<!-- Plugins -->
 		<checkstyle.version>8.22</checkstyle.version>
