@@ -366,6 +366,10 @@
 						<compilerVersion>${java.version}</compilerVersion>
 						<source>${java.version}</source>
 						<target>${java.version}</target>
+						<release>${java.version}</release>
+						<jdkToolchain>
+							<version>${java.version}</version>
+						</jdkToolchain>
 					</configuration>
 				</plugin>
 				<plugin>
