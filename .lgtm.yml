@@ -5,4 +5,6 @@ extraction:
       maven:
         version: 3.6.1
       build_command:
+        - java -version
+        - mvn -version
         - mvn clean package

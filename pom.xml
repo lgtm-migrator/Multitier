@@ -364,7 +364,6 @@
 					<version>${maven-compiler-plugin.version}</version>
 					<configuration>
 						<compilerVersion>${java.version}</compilerVersion>
-						<release>${java.version}</release>
 						<source>${java.version}</source>
 						<target>${java.version}</target>
 					</configuration>
