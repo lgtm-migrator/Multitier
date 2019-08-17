@@ -4,9 +4,11 @@
 [![...](https://img.shields.io/badge/release-v0.0.0-blue.svg)](https://github.com/agustin-golmar/Multitier/releases)
 [![...](https://www.travis-ci.com/agustin-golmar/Multitier.svg?branch=master)](https://www.travis-ci.com/agustin-golmar/Multitier)
 [![...](https://snyk.io/test/github/agustin-golmar/Multitier/badge.svg?targetFile=pom.xml)](https://snyk.io/test/github/agustin-golmar/Multitier?targetFile=pom.xml)
+[![...](https://img.shields.io/lgtm/alerts/g/agustin-golmar/Multitier.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/agustin-golmar/Multitier/alerts/)
 [![...](https://codecov.io/gh/agustin-golmar/Multitier/branch/master/graph/badge.svg)](https://codecov.io/gh/agustin-golmar/Multitier)
-[![...](https://api.codacy.com/project/badge/Grade/bc5b0a92562c487f877b48bacdf8e663)](https://app.codacy.com/app/agustin-golmar/Multitier?utm_source=github.com&utm_medium=referral&utm_content=agustin-golmar/Multitier&utm_campaign=Badge_Grade_Settings)
 
+[![...](https://api.codacy.com/project/badge/Grade/bc5b0a92562c487f877b48bacdf8e663)](https://app.codacy.com/app/agustin-golmar/Multitier?utm_source=github.com&utm_medium=referral&utm_content=agustin-golmar/Multitier&utm_campaign=Badge_Grade_Settings)
+[![...](https://img.shields.io/lgtm/grade/java/g/agustin-golmar/Multitier.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/agustin-golmar/Multitier/context:java)
 [![...](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fagustin-golmar%2FMultitier.svg?type=small)](https://app.fossa.com/projects/git%2Bgithub.com%2Fagustin-golmar%2FMultitier?ref=badge_small)
 
 [![...](https://sonarcloud.io/api/project_badges/quality_gate?project=agustin-golmar_Multitier)](https://sonarcloud.io/dashboard?id=agustin-golmar_Multitier)
