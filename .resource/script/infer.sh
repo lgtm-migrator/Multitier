@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ev
+set -e
 
 VERSION=0.17.0;
 curl -sSL "https://github.com/facebook/infer/releases/download/v$VERSION/infer-linux64-v$VERSION.tar.xz"
