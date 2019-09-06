@@ -2,7 +2,7 @@ pull_request_rules:
   - name: Automatic merge for Dependabot dependency updates
     conditions:
       - base=master
-      - author=dependabot[bot]
+      - author=dependabot-preview[bot]
       - status-success=License Compliance
       - status-success=Codacy/PR Quality Review
       - status-success=SonarCloud Code Analysis
