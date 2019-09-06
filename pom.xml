@@ -85,7 +85,7 @@
 		<maven-surefire-plugin.version>3.0.0-M3</maven-surefire-plugin.version>
 		<nohttp-checkstyle.version>0.0.3.RELEASE</nohttp-checkstyle.version>
 		<pitest-junit5-plugin.version>0.9</pitest-junit5-plugin.version>
-		<pitest-maven.version>1.4.9</pitest-maven.version>
+		<pitest-maven.version>1.4.10</pitest-maven.version>
 	</properties>
 
 	<!-- Global Dependencies -->
