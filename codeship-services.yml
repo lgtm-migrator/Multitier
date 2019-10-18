@@ -1,0 +1,5 @@
+# ##############################################################################
+# OpenJDK Docker Service
+#
+app:
+  image: circleci/openjdk:14-jdk-buster
