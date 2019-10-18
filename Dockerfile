@@ -1,7 +1,5 @@
-# Using OpenJDK Docker official image:
-FROM openjdk:12.0.1-jdk
-
-RUN apt-get install maven
+# Using Mave+OpenJDK Docker official image:
+FROM maven:3.6.2-jdk-12
 
 # Set working directory:
 RUN mkdir /usr/src/app
