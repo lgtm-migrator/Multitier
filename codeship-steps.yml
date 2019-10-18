@@ -12,9 +12,6 @@
   - name: Home
     service: app
     command: ls -la home/circleci
-  - name: Find pom.xml
-    service: app
-    command: find ./home pom.xml
   - name: Target
     service: app
     command: ls -la target
@@ -30,6 +27,12 @@
   - name: Parent
     service: app
     command: ls -la ..
+  - name: Cloning
+    service: app
+    command: git clone https://github.com/agustin-golmar/Multitier.git
+  - name: Building
+    service: app
+    command: mvn clean package
   - name: Local finding pom.xml
     service: app
     command: find . pom.xml
