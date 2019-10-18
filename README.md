@@ -1,5 +1,6 @@
 [![...](.resource/image/readme-header.svg)](https://github.com/agustin-golmar/Multitier)
 [![...](https://img.shields.io/badge/Java-v12-red.svg?logo=java&logoColor=white)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+[![...](https://img.shields.io/badge/Infer-v0.17.0-ffc210.svg?logo=facebook&logoColor=white)](https://fbinfer.com/)
 [![...](https://img.shields.io/github/issues/agustin-golmar/Multitier?color=purple&label=issues&logo=git&logoColor=white)](https://github.com/agustin-golmar/Multitier/issues)
 [![...](https://img.shields.io/badge/release-v0.0.0-blue.svg)](https://github.com/agustin-golmar/Multitier/releases)
 [![...](https://www.travis-ci.com/agustin-golmar/Multitier.svg?branch=master)](https://www.travis-ci.com/agustin-golmar/Multitier)
@@ -23,7 +24,7 @@ A template for multitiered applications.
 
 ## Build
 
-You need _Apache Maven +3.5.0_, and _Java SE 12 Release_. Then run:
+You need _Apache Maven +3.6.0_, and _Java SE +12 Release_. Then run:
 
 ```bash
 $ mvn clean package
