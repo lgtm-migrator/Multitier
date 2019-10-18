@@ -1,5 +1,5 @@
 # ##############################################################################
-# OpenJDK Docker Service
+# CodeShip Services
 #
 app:
   build:

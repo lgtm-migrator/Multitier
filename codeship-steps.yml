@@ -1,20 +1,17 @@
 # #############################################################################
 # CodeShip Steps
 #
-- type: serial
+- type: parallel
   steps:
-  - name: OpenJDK
+  - name: OpenJDK Version
     service: app
     command: java -version
-  - name: Maven
+  - name: Maven Version
     service: app
     command: mvn -version
-  - name: This
+  - name: Codebase
     service: app
     command: ls -la .
-  - name: Parent
-    service: app
-    command: ls -la ..
   - name: Build
     service: app
     command: mvn clean package

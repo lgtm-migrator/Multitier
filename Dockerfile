@@ -1,4 +1,4 @@
-# Using Mave+OpenJDK Docker official image:
+# Using Maven+OpenJDK Docker official image:
 FROM maven:3.6.2-jdk-12
 
 # Set working directory:
