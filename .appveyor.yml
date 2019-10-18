@@ -1,0 +1,12 @@
+# ##############################################################################
+# AppVeyor CI Configuration
+#
+build_script:
+  - java -version
+  - mvn -version
+  - mvn clean package
+image: ubuntu
+install:
+  - apt-get install maven
+stack: jdk 12
+test: off
