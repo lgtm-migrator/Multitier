@@ -11,4 +11,5 @@
     command: mvn -version
   - name: Build
     service: app
-    command: mvn clean package
+    command: ls -la
+    #mvn clean package
