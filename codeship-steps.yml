@@ -9,31 +9,12 @@
   - name: Maven
     service: app
     command: mvn -version
-  - name: Home
+  - name: This
     service: app
-    command: ls -la home/circleci
-  - name: Target
-    service: app
-    command: ls -la target
-  - name: User
-    service: app
-    command: ls -la usr/src
-  - name: Variable
-    service: app
-    command: ls -la var
-  - name: Temp
-    service: app
-    command: ls -la tmp
+    command: ls -la .
   - name: Parent
     service: app
     command: ls -la ..
-  - name: Cloning
-    service: app
-    command: cd home/circleci && git clone https://github.com/agustin-golmar/Multitier.git
-  - name: Building
+  - name: Build
     service: app
     command: mvn clean package
-  - name: Local finding pom.xml
-    service: app
-    command: find . pom.xml
-    #mvn clean package

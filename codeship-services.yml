@@ -2,4 +2,6 @@
 # OpenJDK Docker Service
 #
 app:
-  image: circleci/openjdk:14-jdk-buster
+  build:
+    image: app
+    dockerfile_path: Dockerfile
