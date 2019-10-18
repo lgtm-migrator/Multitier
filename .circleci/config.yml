@@ -8,7 +8,10 @@ jobs:
       - image: openjdk:12.0.1
     working_directory: ~/project
     steps:
-      - run: java -version
+      - run: |
+          sudo apt-get install maven
+          java -version
+          mvn -version
       - checkout
       - restore_cache:
           keys:
