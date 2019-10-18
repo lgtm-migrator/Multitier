@@ -11,8 +11,14 @@
     command: mvn -version
   - name: Build1
     service: app
-    command: ls -la ~
+    command: ls -la $HOME
   - name: Build
     service: app
-    command: ls -la ~/app
+    command: ls -la target
+  - name: Build
+    service: app
+    command: ls -la src
+  - name: Build
+    service: app
+    command: ls -la src/app
     #mvn clean package
