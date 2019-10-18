@@ -9,7 +9,10 @@
   - name: Maven
     service: app
     command: mvn -version
+  - name: Build1
+    service: app
+    command: ls -la ~
   - name: Build
     service: app
-    command: ls -la
+    command: ls -la ~/app
     #mvn clean package
