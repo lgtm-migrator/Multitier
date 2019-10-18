@@ -13,7 +13,6 @@ jobs:
       - restore_cache:
           keys:
             - maven-dependencies-{{ checksum "pom.xml" }}
-            - mvaen-dependencies-
       - run: mvn dependency:go-offline
       - save_cache:
           paths:
