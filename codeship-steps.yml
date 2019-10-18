@@ -1,0 +1,14 @@
+# #############################################################################
+# CodeShip Steps
+#
+- type: serial
+  steps:
+  - name: OpenJDK
+    service: app
+    command: java -version
+  - name: Maven
+    service: app
+    command: mvn -version
+  - name: Build
+    service: app
+    command: mvn clean package
