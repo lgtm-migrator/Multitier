@@ -6,4 +6,4 @@ RUN mkdir /usr/src/app
 WORKDIR /usr/src/app
 
 # Move entire application to container:
-COPY . /app
+COPY . .
