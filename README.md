@@ -8,6 +8,7 @@
 [![...](https://codecov.io/gh/agustin-golmar/Multitier/branch/master/graph/badge.svg)](https://codecov.io/gh/agustin-golmar/Multitier)
 [![...](https://api.codacy.com/project/badge/Grade/bc5b0a92562c487f877b48bacdf8e663)](https://app.codacy.com/app/agustin-golmar/Multitier?utm_source=github.com&utm_medium=referral&utm_content=agustin-golmar/Multitier&utm_campaign=Badge_Grade_Settings)
 [![...](https://img.shields.io/lgtm/grade/java/g/agustin-golmar/Multitier.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/agustin-golmar/Multitier/context:java)
+[![...](https://app.codeship.com/projects/22139b90-d38c-0137-df31-62d87e3fb128/status?branch=master)](https://app.codeship.com/projects/370115)
 
 [![...](https://circleci.com/gh/agustin-golmar/Multitier/tree/master.svg?style=svg)](https://circleci.com/gh/agustin-golmar/Multitier/tree/master)
 [![...](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fagustin-golmar%2FMultitier.svg?type=small)](https://app.fossa.com/projects/git%2Bgithub.com%2Fagustin-golmar%2FMultitier?ref=badge_small)
