@@ -1,0 +1,16 @@
+# ##############################################################################
+# Drone.io CI Configuration
+#
+kind: pipeline
+type: exec
+name: default
+platform:
+  os: linux
+  arch: amd64
+steps:
+  - name: build
+    commands:
+      - sudo apt-get install maven
+      - java -version
+      - mvn -version
+      - mvn clean package
