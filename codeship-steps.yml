@@ -9,16 +9,28 @@
   - name: Maven
     service: app
     command: mvn -version
-  - name: Build1
+  - name: Home
     service: app
-    command: ls -la $HOME
-  - name: Build
+    command: ls -la home
+  - name: Find pom.xml
+    service: app
+    command: find / pom.xml
+  - name: Local finding pom.xml
+    service: app
+    command: find . pom.xml
+  - name: Target
     service: app
     command: ls -la target
-  - name: Build
+  - name: User
     service: app
-    command: ls -la src
-  - name: Build
+    command: ls -la usr
+  - name: Variable
     service: app
-    command: ls -la src/app
+    command: ls -la var
+  - name: Temp
+    service: app
+    command: ls -la tmp
+  - name: Parent
+    service: app
+    command: ls -la ..
     #mvn clean package
