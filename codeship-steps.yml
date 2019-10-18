@@ -17,7 +17,7 @@
     command: ls -la target
   - name: User
     service: app
-    command: ls -la usr
+    command: ls -la usr/src
   - name: Variable
     service: app
     command: ls -la var
@@ -29,7 +29,7 @@
     command: ls -la ..
   - name: Cloning
     service: app
-    command: git clone https://github.com/agustin-golmar/Multitier.git
+    command: cd home/circleci && git clone https://github.com/agustin-golmar/Multitier.git
   - name: Building
     service: app
     command: mvn clean package
