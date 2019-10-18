@@ -16,7 +16,7 @@ install:
   - chmod ugo+x ./.resource/script/infer.sh
   - ./.resource/script/infer.sh
 script:
-  - mvn clean package
+  - $INFER_HOME/infer run -- mvn clean package
   - mvn install sonar:sonar -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.projectKey=agustin-golmar_Multitier
 after_success:
   - bash <(curl -s https://codecov.io/bash)
