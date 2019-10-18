@@ -8,6 +8,7 @@
 .vscode/
 bin/
 bower_components/
+infer-out/
 log/
 logs/
 node_modules/
