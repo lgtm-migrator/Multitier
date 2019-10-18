@@ -7,6 +7,6 @@ build_script:
   - mvn clean package
 image: ubuntu
 install:
-  - apt-get install maven
+  - sudo apt-get install maven
 stack: jdk 12
 test: off
