@@ -15,3 +15,8 @@ steps:
     mvn -version
     mvn clean package
   displayName: 'Build'
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TEST-*.xml'
+    failTaskOnFailedTests: true
