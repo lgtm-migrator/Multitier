@@ -43,6 +43,15 @@ You can provide the following additional VM arguments:
 * `log.level`: any level supported by _Logback_ (default is _INFO_).
 * `log.timezone`: any timezone supported by _Logback_ (default is _America/Argentina/Buenos\_Aires_).
 
+## Correctness
+
+This project uses the following tools to augment its correctness:
+
+* [Checkstyle Validation](https://checkstyle.org/)
+* [PIT Mutation Testing](https://pitest.org/)
+* [PitMP Testing](https://github.com/STAMP-project/pitmp-maven-plugin)
+* [PMD+CPD Source Code Analyzer](https://pmd.github.io/)
+
 ## License
 
 [![...](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fagustin-golmar%2FMultitier.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fagustin-golmar%2FMultitier?ref=badge_large)

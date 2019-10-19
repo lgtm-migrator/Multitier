@@ -86,6 +86,7 @@
 		<nohttp-checkstyle.version>0.0.3.RELEASE</nohttp-checkstyle.version>
 		<pitest-junit5-plugin.version>0.9</pitest-junit5-plugin.version>
 		<pitest-maven.version>1.4.10</pitest-maven.version>
+		<pitmp-maven-plugin.version>1.3.7</pitmp-maven-plugin.version>
 	</properties>
 
 	<!-- Global Dependencies -->
@@ -422,8 +423,8 @@
 					</configuration>
 					<executions>
 						<execution>
-							<id>pmd/cpd-verification</id>
-							<phase>verify</phase>
+							<id>pmd/cpd-validation</id>
+							<phase>validate</phase>
 							<goals>
 								<goal>check</goal>
 								<goal>cpd-check</goal>
@@ -463,7 +464,8 @@
 						</dependency>
 					</dependencies>
 					<configuration>
-						<skip>true</skip>
+						<failWhenNoMutations>false</failWhenNoMutations>
+						<skip>false</skip>
 						<verbose>true</verbose>
 						<targetClasses>
 							<param>${project.groupId}.*</param>
@@ -475,8 +477,41 @@
 					<executions>
 						<execution>
 							<id>mutation-testing</id>
+							<phase>test</phase>
 							<goals>
 								<goal>mutationCoverage</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>eu.stamp-project</groupId>
+					<artifactId>pitmp-maven-plugin</artifactId>
+					<version>${pitmp-maven-plugin.version}</version>
+					<dependencies>
+						<dependency>
+							<groupId>org.pitest</groupId>
+							<artifactId>pitest-junit5-plugin</artifactId>
+							<version>${pitest-junit5-plugin.version}</version>
+						</dependency>
+					</dependencies>
+					<configuration>
+						<failWhenNoMutations>false</failWhenNoMutations>
+						<skip>false</skip>
+						<verbose>true</verbose>
+						<targetClasses>
+							<param>${project.groupId}.*</param>
+						</targetClasses>
+						<targetTests>
+							<param>${project.groupId}.*</param>
+						</targetTests>
+					</configuration>
+					<executions>
+						<execution>
+							<id>mutation/module-testing</id>
+							<phase>test</phase>
+							<goals>
+								<goal>run</goal>
 							</goals>
 						</execution>
 					</executions>
@@ -500,6 +535,10 @@
 			<plugin>
 				<groupId>org.pitest</groupId>
 				<artifactId>pitest-maven</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>eu.stamp-project</groupId>
+				<artifactId>pitmp-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
@@ -536,6 +575,32 @@
 												<ignore></ignore>
 											</action>
 										</pluginExecution>
+										<pluginExecution>
+											<pluginExecutionFilter>
+												<groupId>org.apache.maven.plugins</groupId>
+												<artifactId>maven-pmd-plugin</artifactId>
+												<versionRange>${maven-pmd-plugin.version}</versionRange>
+												<goals>
+													<goal>check</goal>
+												</goals>
+											</pluginExecutionFilter>
+											<action>
+												<ignore></ignore>
+											</action>
+										</pluginExecution>
+										<pluginExecution>
+											<pluginExecutionFilter>
+												<groupId>org.apache.maven.plugins</groupId>
+												<artifactId>maven-pmd-plugin</artifactId>
+												<versionRange>${maven-pmd-plugin.version}</versionRange>
+												<goals>
+													<goal>cpd-check</goal>
+												</goals>
+											</pluginExecutionFilter>
+											<action>
+												<ignore></ignore>
+											</action>
+										</pluginExecution>
 									</pluginExecutions>
 								</lifecycleMappingMetadata>
 							</configuration>
@@ -563,6 +628,17 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-pmd-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.pitest</groupId>
+				<artifactId>pitest-maven</artifactId>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>report</report>
+						</reports>
+					</reportSet>
+				</reportSets>
 			</plugin>
 		</plugins>
 	</reporting>
