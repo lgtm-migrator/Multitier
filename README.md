@@ -11,6 +11,7 @@
 [![...](https://img.shields.io/lgtm/grade/java/g/agustin-golmar/Multitier.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/agustin-golmar/Multitier/context:java)
 [![...](https://ci.appveyor.com/api/projects/status/9vpc18sb4k6wwl0c?svg=true)](https://ci.appveyor.com/project/agustin-golmar/multitier)
 [![...](https://cloud.drone.io/api/badges/agustin-golmar/Multitier/status.svg)](https://cloud.drone.io/agustin-golmar/Multitier)
+[![...](https://dev.azure.com/agustin-golmar/Multitier/_apis/build/status/agustin-golmar.Multitier?branchName=master)](https://dev.azure.com/agustin-golmar/Multitier/_build/latest?definitionId=3&branchName=master)
 [![...](https://app.codeship.com/projects/22139b90-d38c-0137-df31-62d87e3fb128/status?branch=master)](https://app.codeship.com/projects/370115)
 
 [![...](https://circleci.com/gh/agustin-golmar/Multitier/tree/master.svg?style=svg)](https://circleci.com/gh/agustin-golmar/Multitier/tree/master)
