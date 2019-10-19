@@ -16,7 +16,7 @@ install:
   - chmod ugo+x ./.resource/script/infer.sh
   - ./.resource/script/infer.sh
 script:
-  - /opt/infer-linux64-v0.17.0/bin/infer run -- mvn clean package
-  - mvn install sonar:sonar -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.projectKey=agustin-golmar_Multitier
+  - /opt/infer-linux64-v0.17.0/bin/infer run -- mvn -Dlog.level=INFO clean package
+  - mvn -Dlog.level=INFO -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.projectKey=agustin-golmar_Multitier install sonar:sonar
 after_success:
   - bash <(curl -s https://codecov.io/bash)

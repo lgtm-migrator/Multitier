@@ -465,6 +465,9 @@
 					</dependencies>
 					<configuration>
 						<failWhenNoMutations>false</failWhenNoMutations>
+						<jvmArgs>
+							<value>-Dlog.level=INFO</value>
+						</jvmArgs>
 						<skip>false</skip>
 						<verbose>true</verbose>
 						<targetClasses>
@@ -497,6 +500,9 @@
 					</dependencies>
 					<configuration>
 						<failWhenNoMutations>false</failWhenNoMutations>
+						<jvmArgs>
+							<value>-Dlog.level=INFO</value>
+						</jvmArgs>
 						<skip>false</skip>
 						<verbose>true</verbose>
 						<targetClasses>
