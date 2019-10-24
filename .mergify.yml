@@ -3,13 +3,21 @@ pull_request_rules:
     conditions:
       - base=master
       - author=dependabot-preview[bot]
-      - status-success=License Compliance
       - status-success=Codacy/PR Quality Review
+      - status-success=LGTM analysis: Java
+      - status-success=License Compliance
       - status-success=SonarCloud Code Analysis
       - status-success=Travis CI - Branch
       - status-success=Travis CI - Pull Request
+      - status-success=agustin-golmar.Multitier
+      - status-success=ci/circleci: build
       - status-success=codecov/patch
       - status-success=codecov/project
+      - status-success=continuous-integration/appveyor/branch
+      - status-success=continuous-integration/appveyor/pr
+      - status-success=continuous-integration/codeship
+      - status-success=continuous-integration/drone/pr
+      - status-success=continuous-integration/drone/push
       - status-success=security/snyk - api/pom.xml (agustin-golmar)
       - status-success=security/snyk - backend/pom.xml (agustin-golmar)
       - status-success=security/snyk - concept/pom.xml (agustin-golmar)
