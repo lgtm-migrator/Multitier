@@ -11,7 +11,9 @@ cache:
 env:
   global:
     - CODECOV_TOKEN="4ab0dfbd-66bb-45a7-9ada-051fa9f0feb0"
+    - INFER_HOME="$HOME/infer/bin"
     - INFER_VERSION="0.17.0"
+    - LOG="-Dlog.level=INFO"
     - SCRIPTS_FOLDER="./.resource/script"
     - SONAR_CLOUD="-Dsonar.host.url=https://sonarcloud.io/ -Dsonar.projectKey=agustin-golmar_Multitier"
 jdk:
@@ -25,7 +27,7 @@ before_install:
 install:
   - $SCRIPTS_FOLDER/infer.sh
 script:
-  - $HOME/infer/infer-linux64-v$INFER_VERSION/bin/infer run -- mvn -Dlog.level=INFO clean package
-  - mvn -Dlog.level=INFO $SONAR_CLOUD install sonar:sonar
+  - $INFER_HOME/infer run -- mvn $LOG clean package
+  - mvn $LOG $SONAR_CLOUD install sonar:sonar
 after_success:
   - bash <(curl -s https://codecov.io/bash)
