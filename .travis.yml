@@ -4,19 +4,28 @@ addons:
     organization: "agustin-golmar"
     token:
       secure: "fhAwfYt4IO7J+C+arTWCysCE/MVnVLaQAAhCjJvCnWz4CxiPWAlf8lAKFDZ5uoHdOjIL1spaJqwgwIUAL++MOq9iQGnLeijJIlSwEtDIvTZrwDQ7GCcte9zysQRb4pdfOMvGDP63zVVGyj5FS2LpIoKe7gz+Mlk91ULW0FwtyBKk/V0x51MLU12jfbZOYgimjZdDTdoCJq0kMAs/zWo+5DtM514HZoKJnuJZWQpx71JfyFEErHltXDNPv0dNEF306kAuFMNUynRRIKjWxq0nXpRxuV/dDoT03s8p6rl1R8Fi1INdR59DX3WsoSGoTWO0AKeJxjbAAXP5hHFee7Abf/Uwx9i+fQ9wPLfCuN4kAtuMrqt/0H50/v7m4bDsuioVrzWytcz4P9EuvURk+RQ6R26f1EOfPXoz/5bRuV4EW2iLnyU3oq95bJ0RczfCU9j6rY7dsfbl43d4SayXQzG555Wpyv/VM9IatyEZkLpGRDgLU3lmzu1dQyXf28r5fKEIpZN//nm3GfqzgMm+8gSLTaXAj+L7r1UNiPfIq6aWQTxmPbDgIZMmRB8TjGAQ1zawFYVNJmoLY97hQBjqLr0Mvj/ddneqiA6/o47cnnxKgjcA3zzgscdAoGcirauul33J+/jFklQpvpZemOhkJ7TECVMWkrrEIFg8qNRgEudw4Wk="
+cache:
+  directories:
+  - $HOME/infer
+  - $HOME/.m2
 env:
-  - CODECOV_TOKEN="4ab0dfbd-66bb-45a7-9ada-051fa9f0feb0"
-language:
-  - java
+  global:
+    - CODECOV_TOKEN="4ab0dfbd-66bb-45a7-9ada-051fa9f0feb0"
+    - INFER_VERSION="0.17.0"
+    - SCRIPTS_FOLDER="./.resource/script"
+    - SONAR_CLOUD="-Dsonar.host.url=https://sonarcloud.io/ -Dsonar.projectKey=agustin-golmar_Multitier"
 jdk:
   - openjdk12
+language:
+  - java
 
 # Run:
+before_install:
+  - chmod ugo+x $SCRIPTS_FOLDER/infer.sh
 install:
-  - chmod ugo+x ./.resource/script/infer.sh
-  - ./.resource/script/infer.sh
+  - $SCRIPTS_FOLDER/infer.sh
 script:
-  - /opt/infer-linux64-v0.17.0/bin/infer run -- mvn -Dlog.level=INFO clean package
-  - mvn -Dlog.level=INFO -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.projectKey=agustin-golmar_Multitier install sonar:sonar
+  - $HOME/infer/infer-linux64-v$INFER_VERSION/bin/infer run -- mvn -Dlog.level=INFO clean package
+  - mvn -Dlog.level=INFO $SONAR_CLOUD install sonar:sonar
 after_success:
   - bash <(curl -s https://codecov.io/bash)

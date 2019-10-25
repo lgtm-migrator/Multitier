@@ -2,10 +2,13 @@
 
 set -ev
 
-INFER_VERSION=0.17.0; \
-export INFER_HOME=/opt/infer-linux64-v$INFER_VERSION/bin; \
-curl -sSL "https://github.com/facebook/infer/releases/download/v$INFER_VERSION/infer-linux64-v$INFER_VERSION.tar.xz" \
-| sudo tar -C /opt -xJ; \
-ls -l /opt; \
-sudo apt-get install python2.7-minimal; \
-python2.7 --version;
+# Make a folder for Infer:
+mkdir ${HOME}/infer
+
+# Download last Infer:
+curl -sSL "https://github.com/facebook/infer/releases/download/v${INFER_VERSION}/infer-linux64-v${INFER_VERSION}.tar.xz" \
+	| sudo tar -C ${HOME}/infer -xJ
+
+# Install Python v2.7 (required by Infer):
+sudo apt-get install python2.7-minimal
+python2.7 --version

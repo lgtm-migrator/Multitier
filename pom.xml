@@ -469,7 +469,7 @@
 							<value>-Dlog.level=INFO</value>
 						</jvmArgs>
 						<skip>false</skip>
-						<verbose>true</verbose>
+						<verbose>false</verbose>
 						<targetClasses>
 							<param>${project.groupId}.*</param>
 						</targetClasses>
@@ -504,7 +504,7 @@
 							<value>-Dlog.level=INFO</value>
 						</jvmArgs>
 						<skip>false</skip>
-						<verbose>true</verbose>
+						<verbose>false</verbose>
 						<targetClasses>
 							<param>${project.groupId}.*</param>
 						</targetClasses>
