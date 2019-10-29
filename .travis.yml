@@ -15,6 +15,7 @@ env:
     - INFER_VERSION="0.17.0"
     - LOG="-Dlog.level=INFO"
     - MAVEN_PHASES="clean package sonar:sonar"
+    - MAVEN_SETTINGS=".resource/plugin/maven-settings.xml"
     - SCRIPTS_FOLDER="./.resource/script"
     - SONAR_CLOUD="-Dsonar.host.url=https://sonarcloud.io/ -Dsonar.projectKey=agustin-golmar_Multitier"
 jdk:
@@ -28,6 +29,6 @@ before_install:
 install:
   - $SCRIPTS_FOLDER/infer.sh
 script:
-  - $INFER_HOME/infer run -- mvn $LOG $SONAR_CLOUD $MAVEN_PHASES
+  - $INFER_HOME/infer run -- mvn -s $MAVEN_SETTINGS $LOG $SONAR_CLOUD $MAVEN_PHASES
 after_success:
   - bash <(curl -s https://codecov.io/bash)
