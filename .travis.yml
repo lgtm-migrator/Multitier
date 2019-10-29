@@ -18,6 +18,8 @@ env:
     - MAVEN_SETTINGS=".resource/plugin/maven-settings.xml"
     - SCRIPTS_FOLDER="./.resource/script"
     - SONAR_CLOUD="-Dsonar.host.url=https://sonarcloud.io/ -Dsonar.projectKey=agustin-golmar_Multitier"
+git:
+  depth: false
 jdk:
   - openjdk12
 language:
