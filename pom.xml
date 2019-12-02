@@ -68,7 +68,7 @@
 
 		<!-- Plugins -->
 		<asm.version>7.2</asm.version>
-		<checkstyle.version>8.26</checkstyle.version>
+		<checkstyle.version>8.27</checkstyle.version>
 		<exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
 		<jacoco-maven-plugin.version>0.8.5</jacoco-maven-plugin.version>
 		<lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
