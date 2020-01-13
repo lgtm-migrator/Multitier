@@ -67,7 +67,7 @@
 		<spring-test.version>5.2.2.RELEASE</spring-test.version>
 
 		<!-- Plugins -->
-		<asm.version>7.2</asm.version>
+		<asm.version>7.3.1</asm.version>
 		<checkstyle.version>8.28</checkstyle.version>
 		<exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
 		<jacoco-maven-plugin.version>0.8.5</jacoco-maven-plugin.version>
