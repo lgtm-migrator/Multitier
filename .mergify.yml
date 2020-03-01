@@ -19,11 +19,7 @@ pull_request_rules:
       - status-success=continuous-integration/codeship
       - status-success=continuous-integration/drone/pr
       - status-success=continuous-integration/drone/push
-      - status-success=security/snyk - api/pom.xml (agustin-golmar)
-      - status-success=security/snyk - backend/pom.xml (agustin-golmar)
-      - status-success=security/snyk - concept/pom.xml (agustin-golmar)
-      - status-success=security/snyk - frontend/pom.xml (agustin-golmar)
-      - status-success=security/snyk - pom.xml (agustin-golmar)
+      - status-success=security/snyk (agustin-golmar)
     actions:
       merge:
         method: merge
