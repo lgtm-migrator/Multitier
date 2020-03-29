@@ -61,7 +61,7 @@
 		<!-- Testing -->
 		<hamcrest.version>2.2</hamcrest.version>
 		<junit-jupiter-engine.version>5.6.1</junit-jupiter-engine.version>
-		<junit-platform-launcher.version>1.6.0</junit-platform-launcher.version>
+		<junit-platform-launcher.version>1.6.1</junit-platform-launcher.version>
 		<mockito-core.version>3.3.3</mockito-core.version>
 		<mockito-junit-jupiter.version>3.3.3</mockito-junit-jupiter.version>
 		<spring-test.version>5.2.5.RELEASE</spring-test.version>
