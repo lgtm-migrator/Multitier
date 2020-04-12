@@ -12,8 +12,6 @@ pull_request_rules:
       - status-success=agustin-golmar.Multitier
       - "status-success=ci/circleci: build"
       - status-success=codeclimate
-      - status-success=codecov/patch
-      - status-success=codecov/project
       - status-success=continuous-integration/appveyor/branch
       - status-success=continuous-integration/appveyor/pr
       - status-success=continuous-integration/codeship
