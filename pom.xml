@@ -80,7 +80,7 @@
 		<maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
 		<maven-pmd-plugin.version>3.13.0</maven-pmd-plugin.version>
 		<maven-project-info-reports-plugin.version>3.1.0</maven-project-info-reports-plugin.version>
-		<maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
+		<maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
 		<maven-site-plugin.version>3.9.1</maven-site-plugin.version>
 		<maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
 		<nohttp-checkstyle.version>0.0.5.RELEASE</nohttp-checkstyle.version>
