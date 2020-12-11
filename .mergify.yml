@@ -3,7 +3,6 @@ pull_request_rules:
     conditions:
       - base=master
       - author=dependabot-preview[bot]
-      - status-success=Codacy/PR Quality Review
       - "status-success=LGTM analysis: Java"
       - status-success=License Compliance
       - status-success=SonarCloud Code Analysis
