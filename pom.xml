@@ -63,7 +63,7 @@
 		<junit-jupiter-engine.version>5.7.0</junit-jupiter-engine.version>
 		<junit-platform-launcher.version>1.7.0</junit-platform-launcher.version>
 		<mockito-core.version>3.6.28</mockito-core.version>
-		<mockito-junit-jupiter.version>3.6.28</mockito-junit-jupiter.version>
+		<mockito-junit-jupiter.version>3.7.0</mockito-junit-jupiter.version>
 		<spring-test.version>5.3.1</spring-test.version>
 
 		<!-- Plugins -->
