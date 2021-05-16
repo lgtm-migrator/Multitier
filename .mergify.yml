@@ -2,7 +2,6 @@ pull_request_rules:
   - name: Automatic merge for Dependabot dependency updates
     conditions:
       - base=master
-      - author=dependabot-preview[bot]
       - "status-success=LGTM analysis: Java"
       - status-success=License Compliance
       - status-success=SonarCloud Code Analysis
