@@ -64,7 +64,7 @@
 		<junit-platform-launcher.version>1.7.2</junit-platform-launcher.version>
 		<mockito-core.version>3.11.2</mockito-core.version>
 		<mockito-junit-jupiter.version>3.11.2</mockito-junit-jupiter.version>
-		<spring-test.version>5.3.8</spring-test.version>
+		<spring-test.version>5.3.9</spring-test.version>
 
 		<!-- Plugins -->
 		<asm.version>9.2</asm.version>
