@@ -50,7 +50,7 @@
 
 		<!-- DI -->
 		<javax.inject.version>1</javax.inject.version>
-		<spring-context.version>5.3.8</spring-context.version>
+		<spring-context.version>5.3.9</spring-context.version>
 
 		<!-- Logging -->
 		<jcl-over-slf4j.version>1.7.31</jcl-over-slf4j.version>
