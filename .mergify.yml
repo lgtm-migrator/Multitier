@@ -3,10 +3,10 @@ pull_request_rules:
     conditions:
       - base=master
       - "status-success=LGTM analysis: Java"
-      - status-success=License Compliance
-      - status-success=SonarCloud Code Analysis
-      - status-success=Travis CI - Branch
-      - status-success=Travis CI - Pull Request
+      #- status-success=License Compliance
+      #- status-success=SonarCloud Code Analysis
+      #- status-success=Travis CI - Branch
+      #- status-success=Travis CI - Pull Request
       - status-success=agustin-golmar.Multitier
       - "status-success=ci/circleci: build"
       - status-success=codeclimate
