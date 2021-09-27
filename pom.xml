@@ -60,7 +60,7 @@
 
 		<!-- Testing -->
 		<hamcrest.version>2.2</hamcrest.version>
-		<junit-jupiter-engine.version>5.8.0</junit-jupiter-engine.version>
+		<junit-jupiter-engine.version>5.8.1</junit-jupiter-engine.version>
 		<junit-platform-launcher.version>1.8.1</junit-platform-launcher.version>
 		<mockito-core.version>3.12.4</mockito-core.version>
 		<mockito-junit-jupiter.version>3.12.4</mockito-junit-jupiter.version>
