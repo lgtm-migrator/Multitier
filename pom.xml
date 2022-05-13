@@ -63,14 +63,14 @@
 		<junit-jupiter-engine.version>5.8.2</junit-jupiter-engine.version>
 		<junit-platform-launcher.version>1.8.2</junit-platform-launcher.version>
 		<mockito-core.version>4.4.0</mockito-core.version>
-		<mockito-junit-jupiter.version>4.4.0</mockito-junit-jupiter.version>
+		<mockito-junit-jupiter.version>4.5.1</mockito-junit-jupiter.version>
 		<spring-test.version>5.3.17</spring-test.version>
 
 		<!-- Plugins -->
 		<asm.version>9.2</asm.version>
-		<checkstyle.version>10.0</checkstyle.version>
+		<checkstyle.version>10.2</checkstyle.version>
 		<exec-maven-plugin.version>3.0.0</exec-maven-plugin.version>
-		<jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
+		<jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
 		<lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
 		<maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
 		<maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
@@ -79,7 +79,7 @@
 		<maven-eclipse-plugin.version>2.10</maven-eclipse-plugin.version>
 		<maven-jar-plugin.version>3.2.2</maven-jar-plugin.version>
 		<maven-pmd-plugin.version>3.16.0</maven-pmd-plugin.version>
-		<maven-project-info-reports-plugin.version>3.2.2</maven-project-info-reports-plugin.version>
+		<maven-project-info-reports-plugin.version>3.3.0</maven-project-info-reports-plugin.version>
 		<maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
 		<maven-site-plugin.version>3.11.0</maven-site-plugin.version>
 		<maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
